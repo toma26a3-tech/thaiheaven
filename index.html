@@ -96,4 +96,191 @@
   <script src="config.js"></script>
   <script src="renderer.js"></script>
 </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THAI NAVI | タイの夜を、ホンネで調べる。</title>
+    <meta
+      name="description"
+      content="THAI NAVIは、日本人向けにタイの夜遊び・ナイトライフ情報をエリア、ジャンル、SNS観測ログで整理する情報メディアです。"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header" id="home">
+      <div class="container header-inner">
+        <div class="brand">
+          <p class="brand-title">THAI NAVI</p>
+          <p class="brand-tagline">タイの夜を、ホンネで調べる。</p>
+        </div>
+        <nav class="main-nav" aria-label="主要ナビゲーション">
+          <a href="#home">ホーム</a>
+          <a href="#area-guide">エリア</a>
+          <a href="#store-list">ジャンル</a>
+          <a href="#sns-log">SNS情報</a>
+          <a href="#beginner-guide">初心者ガイド</a>
+          <a href="#listing">掲載申込</a>
+        </nav>
+        <div class="lang-switch" aria-label="言語切替（ダミー）">
+          <button class="active" type="button">JP</button>
+          <button type="button">EN</button>
+          <button type="button">中文</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <p class="eyebrow">日本人向けタイ現地情報メディア</p>
+          <h1>タイの夜を、ホンネで調べる。</h1>
+          <p>
+            ガイドブックに載らない現地の空気感を、エリア・ジャンル・SNS情報から整理。初めてのタイ夜遊びでも比較しやすい情報メディア。
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#area-guide">エリアから探す</a>
+            <a class="btn" href="#sns-log">SNS情報を見る</a>
+            <a class="btn" href="#beginner-guide">初心者ガイドを見る</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="beginner-guide">
+        <div class="container">
+          <div class="section-head">
+            <h2>初心者向けナビ</h2>
+            <p>初めての方が先に押さえておきたい、現地での基本情報を整理しています。</p>
+          </div>
+          <div class="beginner-grid" id="beginnerCards"></div>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="filters">
+        <div class="container">
+          <div class="section-head">
+            <h2>検索・フィルター</h2>
+          </div>
+          <div class="filter-panel">
+            <label>
+              キーワード
+              <input id="keywordInput" type="search" placeholder="店舗名・エリア・メモで検索" />
+            </label>
+            <label>
+              エリア
+              <select id="areaFilter"><option value="">すべて</option></select>
+            </label>
+            <label>
+              ジャンル
+              <select id="genreFilter"><option value="">すべて</option></select>
+            </label>
+            <label>
+              タグ
+              <select id="tagFilter"><option value="">すべて</option></select>
+            </label>
+            <div class="check-grid">
+              <label><input id="beginnerOnly" type="checkbox" /> 初心者向け</label>
+              <label><input id="jpOnly" type="checkbox" /> 日本語対応</label>
+              <label><input id="lateOnly" type="checkbox" /> 深夜営業</label>
+              <label><input id="snsOnly" type="checkbox" /> SNSで確認済み</label>
+              <label><input id="cautionOnly" type="checkbox" /> 注意点あり</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="sns-log">
+        <div class="container">
+          <div class="section-head">
+            <h2>現地SNS観測ログ</h2>
+            <p>現地SNSで見かける傾向を、誇張せず日本語で整理した観測メモです。</p>
+          </div>
+          <div class="card-grid" id="snsLogCards"></div>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="store-list">
+        <div class="container two-col">
+          <div>
+            <div class="section-head">
+              <h2>店舗一覧</h2>
+              <p id="storeCount"></p>
+            </div>
+            <div class="card-grid" id="storeCards"></div>
+          </div>
+          <aside class="sidebar">
+            <div class="ad-box">PR / 広告 / Sponsored<br />トップ横長バナー</div>
+            <div class="ad-box">PR / 広告 / Sponsored<br />サイドバー広告</div>
+            <div class="ad-box">PR / 広告 / Sponsored<br />記事内広告</div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="area-guide">
+        <div class="container">
+          <div class="section-head"><h2>エリアガイド</h2></div>
+          <div class="area-grid" id="areaCards"></div>
+          <div class="ad-box ad-inline">PR / 広告 / Sponsored | エリアページ広告</div>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="ranking">
+        <div class="container">
+          <div class="section-head"><h2>目的別ランキング</h2></div>
+          <div class="ranking-grid" id="rankingGrid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="listing">
+        <div class="container">
+          <div class="section-head">
+            <h2>THAI NAVIに掲載しませんか？</h2>
+            <p>
+              THAI NAVIは、日本人旅行者・タイ在住日本人に向けて、タイの夜遊び・ナイトライフ情報を整理する情報メディアです。店舗情報、SNS情報、エリア情報を日本語で掲載できます。
+            </p>
+          </div>
+          <div class="plan-grid">
+            <article><h3>Free Listing：無料</h3><ul><li>店舗名</li><li>エリア</li><li>ジャンル</li><li>料金目安</li><li>基本情報掲載</li></ul></article>
+            <article><h3>Standard：3,000THB/月</h3><ul><li>上位表示</li><li>SNSリンク掲載</li><li>管理人メモ掲載</li><li>画像掲載枠</li></ul></article>
+            <article><h3>Premium：8,000THB/月</h3><ul><li>トップPR枠</li><li>エリア上位表示</li><li>SNS観測ログ掲載</li><li>特集記事枠</li></ul></article>
+            <article><h3>Banner Ad：応相談</h3><ul><li>トップバナー</li><li>エリアページバナー</li><li>記事内バナー</li></ul></article>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#">掲載案内を見る</a>
+            <a class="btn" href="#">掲載資料を確認</a>
+            <a class="btn" href="#">掲載申込フォームへ</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="notice-box">
+            <strong>18歳以上向けのご案内:</strong>
+            本サイトは成人向け要素を含む情報を扱う可能性があります。18歳未満の方は利用をご遠慮ください。
+          </div>
+          <div class="disclaimer-box">
+            掲載情報は、公式SNS・現地SNS・公開情報・管理人確認情報をもとに編集しています。営業時間・料金・サービス内容は変更される可能性があります。訪問前に公式SNS・Google Maps等で最新情報をご確認ください。THAI NAVIは店舗予約サイトではなく、情報紹介メディアです。
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-links">
+        <a href="#">About</a><a href="#listing">掲載申込</a><a href="#">情報修正依頼</a><a href="#">免責事項</a><a href="#">プライバシーポリシー</a><a href="#">X</a><a href="#">Instagram</a>
+      </div>
+      <p>© THAI NAVI</p>
+    </footer>
+
+    <nav class="bottom-nav" aria-label="下部固定ナビ">
+      <button data-target="home">ホーム</button>
+      <button data-target="area-guide">エリア</button>
+      <button data-target="sns-log">SNS</button>
+      <button data-target="beginner-guide">初心者</button>
+      <button data-target="listing">掲載</button>
+    </nav>
+
+    <script src="config.js"></script>
+    <script src="renderer.js"></script>
+  </body>
 </html>

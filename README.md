@@ -4,6 +4,7 @@
 THAI NAVIは、日本人旅行者・タイ在住日本人向けの「タイ夜遊び・ナイトライフ情報メディア」です。予約サイトではなく、店舗・エリア・ジャンル・現地SNS観測ログ・初心者向け注意点を整理する情報紹介メディアとして運用します。
 
 ## ファイル構成（すべてルート直下）
+## ファイル構成
 - `index.html` : 1ページ構成の静的UI
 - `style.css` : スマホファーストのスタイル定義
 - `config.js` : CSV URLやフォールバックデータなどの設定
@@ -18,6 +19,13 @@ THAI NAVIは、日本人旅行者・タイ在住日本人向けの「タイ夜�
 3. `config.js` の `CSV_URL` を有効な公開CSVに変更して確認
 
 > このサイトはビルド不要の静的サイトです。`npm install` は不要です。
+
+- `SPREADSHEET_DESIGN.md` : スプレッドシート設計仕様
+
+## ローカル確認方法
+1. このディレクトリを開く
+2. `index.html` をブラウザで開く（または簡易サーバー利用）
+3. `config.js` の `CSV_URL` を有効な公開CSVに変更して確認
 
 ## Googleスプレッドシート連携方法
 1. Googleスプレッドシートを作成
@@ -87,6 +95,27 @@ git push -u origin main
 - 店舗情報更新は**Googleスプレッドシートで実施**し、サイトはCSVを再読込して反映
 - デザイン変更や機能変更は**GitHub上の差分（commit / PR）で管理**
 - 更新履歴はGitログで追跡し、ロールバック可能な運用を維持
+## config.jsの編集方法
+- `CSV_URL`: 公開CSV URL
+- `FALLBACK_STORES`: CSV取得失敗時に表示する最低限データ
+- `SITE_NAME`, `MANAGER_NAME`: ブランド設定
+
+## Vercel / Netlify / Cloudflare Pagesへの公開方法
+### Vercel
+- GitHub連携でリポジトリをインポート
+- Framework Presetは `Other`
+- Build Command不要、Output Directoryはルート
+
+### Netlify
+- New site from Git
+- Build command空欄
+- Publish directory: `/`
+
+### Cloudflare Pages
+- Connect to Git
+- Framework preset: `None`
+- Build commandなし
+- Build output directory: `/`
 
 ## 店舗追加方法
 1. スプレッドシートに1行追加
