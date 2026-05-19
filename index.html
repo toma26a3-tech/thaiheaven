@@ -1,5 +1,101 @@
 <!doctype html>
 <html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THAI NAVI | タイの夜を、ホンネで調べる。</title>
+  <meta name="description" content="タイ夜遊び情報をエリア・BTS駅・ジャンル・料金で比較できる日本人向け情報メディア。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header" id="home">
+    <div class="container header-inner">
+      <div><p class="logo">THAI NAVI</p><p class="sub">タイの夜を、ホンネで調べる。</p></div>
+      <nav class="main-nav">
+        <a href="#search">検索</a><a href="#store-list">一覧</a><a href="#area-guide">エリア</a><a href="#compare">比較</a><a href="#sns-log">SNS情報</a><a href="#listing">掲載申込</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>安心して探せる、タイ夜遊び情報メディア。</h1>
+        <p>バンコク・パタヤ・プーケット・チェンマイの情報を、エリア/BTS駅/ジャンル/料金帯で整理。比較しやすい一覧設計で、初めての方でも探しやすくしています。</p>
+      </div>
+    </section>
+
+    <section class="section" id="search">
+      <div class="container">
+        <div class="section-head"><h2>トップ検索</h2><p>探しやすさを最優先した大型検索UI</p></div>
+        <div class="search-panel">
+          <label>キーワード<input id="keywordInput" type="search" placeholder="店舗名・注意点・メモ"></label>
+          <label>エリア<select id="areaFilter"><option value="">すべて</option></select></label>
+          <label>BTS駅<select id="btsFilter"><option value="">すべて</option></select></label>
+          <label>ジャンル<select id="genreFilter"><option value="">すべて</option></select></label>
+          <label>料金帯<select id="priceFilter"><option value="">すべて</option></select></label>
+          <label>タグ<select id="tagFilter"><option value="">すべて</option></select></label>
+          <div class="check-row">
+            <label><input id="beginnerOnly" type="checkbox">初心者向け</label>
+            <label><input id="jpOnly" type="checkbox">日本語対応</label>
+            <label><input id="snsOnly" type="checkbox">SNS確認済み</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="area-guide">
+      <div class="container">
+        <div class="section-head"><h2>エリア導線（階層）</h2></div>
+        <div id="areaHierarchy" class="hierarchy"></div>
+      </div>
+    </section>
+
+    <section class="section" id="store-list">
+      <div class="container">
+        <div class="section-head"><h2>高密度店舗一覧</h2><p id="storeCount"></p></div>
+        <div class="list-table-wrap">
+          <table class="list-table">
+            <thead><tr><th>店舗名</th><th>エリア</th><th>BTS</th><th>ジャンル</th><th>料金</th><th>タグ</th><th>SNS確認</th><th>注意点</th><th>導線</th></tr></thead>
+            <tbody id="storeRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="compare">
+      <div class="container">
+        <div class="section-head"><h2>比較UI</h2><p>タグ比較で候補を絞りやすく。</p></div>
+        <div id="compareCards" class="compare-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="sns-log">
+      <div class="container">
+        <div class="section-head"><h2>現地SNS観測ログ</h2></div>
+        <div id="snsLogCards" class="card-grid"></div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="trust">
+      <div class="container trust-box">
+        <p><strong>最終更新:</strong> <span id="lastUpdated">-</span></p>
+        <p><strong>SNS確認済み:</strong> 公式SNS・公開投稿・現地情報を横断確認。</p>
+        <p><strong>公式確認推奨:</strong> 訪問前に公式SNS・Google Mapsの最新投稿をご確認ください。</p>
+        <p><a href="#">情報修正依頼</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="listing"><div class="container"><h2>THAI NAVIに掲載しませんか？</h2><p>掲載案内・掲載資料・申込フォーム（ダミー）を用意しています。</p></div></section>
+  </main>
+
+  <footer class="footer"><p>THAI NAVIは店舗予約サイトではなく、情報紹介メディアです。18歳未満は利用をご遠慮ください。</p></footer>
+
+  <nav class="bottom-nav"><button data-target="search">検索</button><button data-target="store-list">一覧</button><button data-target="area-guide">エリア</button><button data-target="compare">比較</button><button data-target="sns-log">SNS</button></nav>
+
+  <script src="config.js"></script>
+  <script src="renderer.js"></script>
+</body>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
